@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import PropTypes from 'prop-types'
 import './App.css';
-
+import Navbar from './components/Navbar';
+import TextForm from './TextForm';
+import About from "./components/About";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+      <Navbar title="TextUtils" aboutText="about TextUtils">
+      </Navbar>
+      <div className="about">
+        <h1 className='aboutHeading my-3'>About Us</h1>
+        <About/>
+      </div>
+      <hr />
+      <hr />
+      <div className="container">
+        <TextForm heading="Enter the text to analyze" />
+      </div>
+
+      
+
+    </>
   );
 }
+//  The prototypes are actually try catch block like thing which will not allow different data type.
+Navbar.PropTypes = { title: PropTypes.string, aboutText: PropTypes.string, }
 
+Navbar.defaultProps = { title: "Set title" }
 export default App;
