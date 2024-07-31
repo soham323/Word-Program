@@ -3,7 +3,7 @@ import 'G:/BCA books/T.Y/M.E.R.N/REACT/CWH/Program 1/my-app/src/App.css';
 
 export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
         <a className="navbar-brand" href="/">{props.title}</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,10 +29,9 @@ export default function Navbar(props) {
               </ul>
             </li>
           </ul>
-          <div className="dark my-2">
-            <button type='button' className="darkMode btn btn-primary">
-              Dark Mode
-            </button>
+          <div className={`form-check form-switch text-${props.mode==="light"?"dark":"light"}`}>
+            <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onClick={props.toggleMode}/>
+              <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark mode</label>
           </div>
           <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

@@ -3,11 +3,27 @@ import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './TextForm';
 import About from "./components/About";
+import React, { useState } from 'react';
+
 function App() {
+  const [mode, setMode] = useState('light'); //Whether dark mode is enabled or not
+
+  // toggle mode
+  const toggleMode = ()=>{
+    if (mode === "light") {
+      setMode("dark");
+      document.body.style.backgroundColor = 'grey';
+    }
+    else{
+      setMode("light");
+      document.body.style.backgroundColor = 'white';
+
+    }
+  }
   return (
     <>
 
-      <Navbar title="TextUtils" aboutText="about TextUtils">
+      <Navbar title="TextUtils" aboutText="about TextUtils" mode={mode} toggleMode={toggleMode}> 
       </Navbar>
       <div className="about">
         <h1 className='aboutHeading my-3'>About Us</h1>
@@ -16,7 +32,7 @@ function App() {
       <hr />
       <hr />
       <div className="container">
-        <TextForm heading="Enter the text to analyze" />
+        <TextForm heading="Enter the text to analyze" mode={mode}/>
       </div>
 
       
