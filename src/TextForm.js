@@ -35,6 +35,12 @@ export default function TextForm(props) {
         let changeWord = changeText;
         setText(changeWord)
     }
+    //Copy Function
+    const handleCopy = () => {
+        var text = document.getElementById("MyEmail")
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
     return (
         <>
             <div>
@@ -63,6 +69,11 @@ export default function TextForm(props) {
                         <div className="col-sm changeWord">
                             <button className="btn btn-warning" onClick={WordChange}>
                                 Change Word 
+                            </button>
+                        </div>
+                        <div className="clearButton col-1">
+                            <button className="btn btn-danger clear" onClick={handleCopy}>
+                                Copy
                             </button>
                         </div>
                         <div className="clearButton col-1">
