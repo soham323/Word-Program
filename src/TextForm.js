@@ -46,12 +46,12 @@ export default function TextForm(props) {
             <div>
                 <h1>{props.heading}</h1>
                 <form>
-                    <div class="form-group">
+                    <div class={`form-group ${props.mode} bg-${props.mode}`}>
                         <label for="MyEmail">Email address</label>
                         <input type="email" class="form-control" id="MyEmail" value={text} onChange={handleOnChange} />
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
-                    <div className="changeWord">
+                    <div className={`changeWord ${props.mode} bg-${props.mode} `}>
                         <label htmlFor="WordChange">Word to Change With</label>
                         <br />
                         <input class="form-control" type="text" name="WordChange" id="WordChange" value={changeText} onChange={handleChange} />
