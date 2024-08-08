@@ -50,18 +50,11 @@ function App() {
         <h1 className='aboutHeading my-3'>About Us</h1>
         <About/>
       </div>
-      <Router>
-      <Switch>
-        <Route path='/about'>
-          <About />
-        </Route>
-      </Switch>
-      </Router>
       <hr />
       <hr />
-      {/* <div className="container">
+      <div className="container">
         <TextForm heading="Enter the text to analyze" mode={mode}/>
-      </div> */}
+      </div>
 
       
 
