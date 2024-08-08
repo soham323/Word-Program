@@ -5,7 +5,12 @@ import TextForm from './TextForm';
 import About from "./components/About";
 import React, { useState } from 'react';
 import Alert from './components/Alert';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+  } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState('light'); //Whether dark mode is enabled or not
   const [alert, setAlert] = useState(null)
@@ -45,11 +50,18 @@ function App() {
         <h1 className='aboutHeading my-3'>About Us</h1>
         <About/>
       </div>
+      <Router>
+      <Switch>
+        <Route path='/about'>
+          <About />
+        </Route>
+      </Switch>
+      </Router>
       <hr />
       <hr />
-      <div className="container">
+      {/* <div className="container">
         <TextForm heading="Enter the text to analyze" mode={mode}/>
-      </div>
+      </div> */}
 
       
 
