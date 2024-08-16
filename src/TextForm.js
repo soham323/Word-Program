@@ -61,23 +61,23 @@ export default function TextForm(props) {
                 <div className="container">
                     <div className="row">
                         <div className='col-4'>
-                            <button className="btn btn-primary" onClick={handleUpClick}>Convert to Uppercase</button>
+                            <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to Uppercase</button>
                         </div>
                         <div className='col-4'>
-                            <button className="btn btn-primary" onClick={handleLoClick}>Convert to Lowercase</button>
+                            <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>Convert to Lowercase</button>
                         </div>
-                        <div className="col-sm changeWord">
-                            <button className="btn btn-warning" onClick={WordChange}>
+                        <div className="col-smf changeWord">
+                            <button className="btn btn-warning mx-1 my-1" onClick={WordChange}>
                                 Change Word 
                             </button>
                         </div>
                         <div className="clearButton col-1">
-                            <button className="btn btn-danger clear" onClick={handleCopy}>
+                            <button className="btn btn-danger clear mx-1 my-1 " onClick={handleCopy}>
                                 Copy
                             </button>
                         </div>
                         <div className="clearButton col-1">
-                            <button className="btn btn-danger clear" onClick={handleClear}>
+                            <button className="btn btn-danger clear mx-1 my-1" onClick={handleClear}>
                                 Clear
                             </button>
                         </div>
@@ -85,7 +85,7 @@ export default function TextForm(props) {
                 </div>
                 <div className="container my-2">
                     <h1>Your text summary</h1>
-                    <p>{text.split(" ").length} Words & {text.length} characters.</p>
+                    <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words & {text.length} characters.</p>
                     <p>{0.008 * text.split(" ").length} Minutes to read</p>
                     <h2>Preview</h2>
                     <p>{text.length>0?text:"Enter your text to Preview"}</p>
