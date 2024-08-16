@@ -40,6 +40,7 @@ export default function TextForm(props) {
         var text = document.getElementById("MyEmail")
         text.select();
         navigator.clipboard.writeText(text.value);
+        document.getSelection().removeAllRanges();
     }
     return (
         <>
@@ -60,24 +61,24 @@ export default function TextForm(props) {
                 <br />
                 <div className="container">
                     <div className="row">
-                        <div className='col-4'>
-                            <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to Uppercase</button>
+                        <div className='col-2'>
+                            <button  disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to Uppercase</button>
                         </div>
-                        <div className='col-4'>
-                            <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>Convert to Lowercase</button>
+                        <div className='col-2 mx-1 my-1'>
+                            <button disabled={text.length===0}  className="btn btn-primary" onClick={handleLoClick}>Convert to Lowercase</button>
                         </div>
-                        <div className="col-smf changeWord">
-                            <button className="btn btn-warning mx-1 my-1" onClick={WordChange}>
+                        <div className="col-2 changeWord mx-1 my-1">
+                            <button disabled={text.length===0}  className="btn btn-warning" onClick={WordChange}>
                                 Change Word 
                             </button>
                         </div>
-                        <div className="clearButton col-1">
-                            <button className="btn btn-danger clear mx-1 my-1 " onClick={handleCopy}>
+                        <div className="clearButton col-2 mx-1 my-1">
+                            <button disabled={text.length===0}  className="btn btn-danger clear " onClick={handleCopy}>
                                 Copy
                             </button>
                         </div>
-                        <div className="clearButton col-1">
-                            <button className="btn btn-danger clear mx-1 my-1" onClick={handleClear}>
+                        <div className="clearButton col-1 mx-1 my-1">
+                            <button disabled={text.length===0}  className="btn btn-danger clear" onClick={handleClear}>
                                 Clear
                             </button>
                         </div>
