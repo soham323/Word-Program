@@ -5,36 +5,32 @@ import TextForm from './TextForm';
 import About from "./components/About";
 import React, { useState } from 'react';
 import Alert from './components/Alert';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-  } from "react-router-dom";
+import { Router, Route, Routes} from 'react-router-dom'; 
+import Contact from './components/Contact';
 function App() {
   const [mode, setMode] = useState('light'); //Whether dark mode is enabled or not
   const [alert, setAlert] = useState(null)
-  
+
   // Show alert
   const showAlert = (message, type) => {
-      setAlert(
-        {
-          msg: message,
-          type: type 
-        }
-      )
-      setTimeout(() =>{
-        setAlert(null);
-      },3000);
+    setAlert(
+      {
+        msg: message,
+        type: type
+      }
+    )
+    setTimeout(() => {
+      setAlert(null);
+    }, 3000);
   }
   // toggle mode
-  const toggleMode = ()=>{
+  const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
       document.body.style.backgroundColor = '#10171f';
       showAlert("Dark Mode has been enabled", "Success");
     }
-    else{
+    else {
       setMode("light");
       document.body.style.backgroundColor = 'white';
       showAlert("Light Mode has been enabled", "Success");
@@ -42,21 +38,23 @@ function App() {
   }
   return (
     <>
-
-      <Navbar title="TextUtils" aboutText="about TextUtils" mode={mode} toggleMode={toggleMode}> 
-      </Navbar>
+        <Navbar  mode={mode} toggleMode={toggleMode}>
+        </Navbar>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       <Alert alert={alert} />
-      <div className="about">
+      {/* <div className="about">
         <h1 className='aboutHeading my-3'>About Us</h1>
         <About/>
-      </div>
-      <hr />
-      <hr />
+      </div> */}
       <div className="container">
-        <TextForm heading="Enter the text to analyze" mode={mode}/>
+        <TextForm heading="Enter the text to analyze" mode={mode} />
       </div>
 
-      
+
 
     </>
   );
