@@ -28,11 +28,11 @@ function App() {
     if (mode === 'light') {
       setMode('dark');
       document.body.style.backgroundColor = '#10171f';
-      showAlert('Dark Mode has been enabled', 'Success');
+      showAlert('Dark Mode enabled', 'Success');
     } else {
       setMode('light');
       document.body.style.backgroundColor = 'white';
-      showAlert('Light Mode has been enabled', 'Success');
+      showAlert('Dark Mode disabled', 'Success');
     }
   };
 

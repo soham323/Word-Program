@@ -45,14 +45,14 @@ export default function TextForm(props) {
     return (
         <>
             <div>
-                <h1>{props.heading}</h1>
-                <form>
-                    <div class={`form-group ${props.mode} bg-${props.mode}`}>
+                <h1 className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}
+                >{props.heading}</h1>
+                <form className='mx-2 p-2'>
+                    <div class={`mx-2 p-2 form-group ${props.mode}  bg-${props.mode} text-${props.mode === 'light' ? 'dark' : 'light'}`}>
                         <label for="MyEmail">Email address</label>
                         <input type="email" class="form-control" id="MyEmail" value={text} onChange={handleOnChange} />
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
-                    <div className={`changeWord ${props.mode} bg-${props.mode} `}>
+                    <div className={`mx-2 p-2 changeWord ${props.mode} bg-${props.mode} text-${props.mode === 'light' ? 'dark' : 'light'}`}>
                         <label htmlFor="WordChange">Word to Change With</label>
                         <br />
                         <input class="form-control" type="text" name="WordChange" id="WordChange" value={changeText} onChange={handleChange} />
@@ -84,7 +84,7 @@ export default function TextForm(props) {
                         </div>
                     </div>
                 </div>
-                <div className="container my-2">
+                <div className={`container my-2 text-${props.mode === 'light' ? 'dark' : 'light'}`}>
                     <h1>Your text summary</h1>
                     <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words & {text.length} characters.</p>
                     <p>{0.008 * text.split(" ").length} Minutes to read</p>
