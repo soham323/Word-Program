@@ -49,7 +49,7 @@ export default function TextForm(props) {
                 >{props.heading}</h1>
                 <form className='mx-2 p-2'>
                     <div class={`mx-2 p-2 form-group ${props.mode}  bg-${props.mode} text-${props.mode === 'light' ? 'dark' : 'light'}`}>
-                        <label for="MyEmail">Email address</label>
+                        <label for="MyEmail">Enter your text here </label>
                         <input type="email" class="form-control" id="MyEmail" value={text} onChange={handleOnChange} />
                     </div>
                     <div className={`mx-2 p-2 changeWord ${props.mode} bg-${props.mode} text-${props.mode === 'light' ? 'dark' : 'light'}`}>
@@ -87,7 +87,7 @@ export default function TextForm(props) {
                 <div className={`container my-2 text-${props.mode === 'light' ? 'dark' : 'light'}`}>
                     <h1>Your text summary</h1>
                     <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words & {text.length} characters.</p>
-                    <p>{0.008 * text.split(" ").length} Minutes to read</p>
+                    <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to read</p>
                     <h2>Preview</h2>
                     <p>{text.length>0?text:"Enter your text to Preview"}</p>
                 </div>
